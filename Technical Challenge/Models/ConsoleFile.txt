@@ -1,0 +1,48 @@
+﻿class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Technical Challenge\r");
+            Console.WriteLine("------------------------\n");
+
+            Console.Write("Digite um número: ");
+            var numeroEntrada = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine();
+
+            Console.WriteLine($"Número de Entrada: {numeroEntrada}");
+            Console.WriteLine();
+
+            string numDivisores = "";
+            string divPrimos = ""; 
+
+            for (int i = 1; i < numeroEntrada + 1; i++)
+            {
+                if(numeroEntrada % i == 0)
+                {
+                    numDivisores += " " + i;
+
+                    if (IsNumeroPrimo(i))
+                        divPrimos += " " + i ;
+                }
+            }
+
+            Console.WriteLine($"Números divisores:{numDivisores}");
+            Console.WriteLine($"Divisores Primos:{divPrimos}");
+
+            Console.WriteLine();
+            Console.Write("Press 'n' ou Enter para fechar o app:");
+            Console.ReadKey();
+        }
+
+        static bool IsNumeroPrimo(int indice)
+        {
+            bool nPrimo = true;
+            int i = 0;
+            for (i = 2; i <= indice / 2; i++)
+            {
+                if ((indice % i) == 0)
+                    nPrimo = false;
+            }
+            return nPrimo;
+        }
+    }
